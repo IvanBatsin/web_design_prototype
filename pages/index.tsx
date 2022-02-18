@@ -1,6 +1,8 @@
 import { Button, Typography } from 'antd';
+import { Content } from 'antd/lib/layout/layout';
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import DevelopmentBlock from '../components/development/Development';
 import styles from '../styles/Home.module.css';
 
 const Home: NextPage = () => {
@@ -12,7 +14,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/logo.ico" />
       </Head>
 
-      <main className={styles.main}>
+      <header>
         <div className={styles.entry_block}>
           <div className={styles.entry_block_overlay}>
             <div className={styles.entry_block_info}>
@@ -23,7 +25,11 @@ const Home: NextPage = () => {
             </div>
           </div>
         </div>
-      </main>
+      </header>
+
+      <Content style={{ padding: '50px' }}>
+        <DevelopmentBlock/>
+      </Content>
 
       {/* <footer className={styles.footer}>
         <a
