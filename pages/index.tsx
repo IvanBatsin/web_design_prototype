@@ -1,13 +1,15 @@
-import { Button, Typography } from 'antd';
+import { Button, Carousel, Typography } from 'antd';
 import { Content } from 'antd/lib/layout/layout';
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import CarouselComponent from '../components/carousel/CarouselBlock';
 import DevelopmentBlock from '../components/development/Development';
+import Parallax from '../components/parallax/ParallaxContainer';
 import styles from '../styles/Home.module.css';
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.container}>
+    <>
       <Head>
         <title>Студия web-дизайна CDesign</title>
         <meta name="description" content="Студия web-дизайна" />
@@ -30,6 +32,10 @@ const Home: NextPage = () => {
       <Content style={{ padding: '50px' }}>
         <DevelopmentBlock/>
       </Content>
+      <Parallax/>
+      <Content style={{ padding: '50px' }}>
+        <CarouselComponent/>
+      </Content>
 
       {/* <footer className={styles.footer}>
         <a
@@ -43,7 +49,7 @@ const Home: NextPage = () => {
           </span>
         </a>
       </footer> */}
-    </div>
+    </>
   )
 }
 

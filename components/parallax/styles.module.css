@@ -1,0 +1,48 @@
+.parallax {
+  background-image: url('/common/experience_bg.jpg');
+  height: 500px;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  color: #ffffff;
+  align-items: center;
+  position: relative;
+  padding: 0 80px 0 80px;
+}
+
+.mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.6);
+  z-index: 2;
+}
+
+.parallax_title {
+  z-index: 3;
+  color: white !important;
+}
+
+.parallax_title::after {
+  margin: 30px auto 0;
+  content: '';
+  display: block;
+  margin-top: 30px;
+  width: 118px;
+  border-top: 2px solid rgb(97, 97, 97);
+}
+
+.parallax_text {
+  margin-top: 30px;
+  color: rgb(148, 148, 148);
+  z-index: 3;
+  font-size: 18px;
+  text-align: center;
+}
+
+@media screen and (max-width: 780px) {
+  .parallax {
+    padding: 0 30px 0 30px;
+  }
+} 

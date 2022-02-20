@@ -1,0 +1,36 @@
+.development_block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  margin-bottom: 60px !important;
+}
+
+.img {
+  width: 100px;
+}
+
+.block_row {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+@media screen and (max-width: 767px) {
+  .title {
+    font-size: 28px !important;
+  }
+}
+
+@media screen and (max-width: 582px) {
+  .img {
+    width: 80px;
+  }
+}
+
+@media screen and (max-width: 455px) {
+  .img {
+    width: 40px;
+  }
+}
