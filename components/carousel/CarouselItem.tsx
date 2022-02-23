@@ -1,28 +1,32 @@
 import Typography from "antd/lib/typography";
 import React from "react";
+import { ICarouselItem } from "./CarouselBlock";
 import styles from './styles.module.css';
 
-const CarouselItem: React.FC = () => {
+interface Props {
+  carouselItem: ICarouselItem
+}
+
+const CarouselItem: React.FC<Props> = ({carouselItem}) => {
   return (
     <div className={styles.carousel_item}>
       <div className={styles.carousel_info}>
         <div>
-          <Typography.Title level={4}>CRM/ERP система стрелкового клуба	«Калибр»</Typography.Title>
-          <p>Система включает функции, адаптированные под специфику стрелкового	клуба	(запись,	осуществление	услуги,	учет оружия и	т.п.).</p>
-          <p>Автоматизированы вопросы учета, ведения документации (сканирование, распознавание, генерация), отчетности, оплаты и т.д.</p>
+          <Typography.Title level={4}>{carouselItem.title}</Typography.Title>
+          {carouselItem.description.map(item => {
+            return <p key={item}>{item}</p>
+          })}
         </div>
         <div>
           <Typography.Title level={5}>Технологии</Typography.Title>
           <div className={styles.technologies_block}>
-            <div className={styles.technology_item}>Kotlin</div>
-            <div className={styles.technology_item}>Java E8</div>
-            <div className={styles.technology_item}>Java E8</div>
-            <div className={styles.technology_item}>Java E8</div>
-            <div className={styles.technology_item}>Java E8</div>
+            {carouselItem.stack.map(item => {
+              return <div key={item} className={styles.technology_item}>{item}</div>
+            })}
           </div>
         </div>
       </div>
-      <img className={styles.img} src="/carousel/calibr.png" alt="illustration" />
+      <img className={styles.img} src={carouselItem.img} alt="illustration" />
     </div>
   )
 }
