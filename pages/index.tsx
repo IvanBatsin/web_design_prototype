@@ -29,11 +29,11 @@ const Home: NextPage = () => {
         </div>
       </header>
 
-      <Content style={{ padding: '50px' }}>
+      <Content className={styles.content}>
         <DevelopmentBlock/>
       </Content>
       <Parallax/>
-      <Content style={{ padding: '50px' }}>
+      <Content className={styles.content}>
         <CarouselComponent/>
       </Content>
 

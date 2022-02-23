@@ -1,3 +1,7 @@
+.content {
+  padding: 50px;
+}
+
 .entry_block {
   height: calc(100vh - 62px);
   margin-top: 62px;
@@ -48,6 +52,12 @@
 @media screen and (max-width: 1010px) {
   .text_heading_thin {
     font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 799px) {
+  .content {
+    padding: 20px;
   }
 }
 
