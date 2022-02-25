@@ -5,6 +5,7 @@ import Head from 'next/head';
 import CarouselComponent from '../components/carousel/CarouselBlock';
 import DevelopmentBlock from '../components/development/Development';
 import Parallax from '../components/parallax/ParallaxContainer';
+import Partners from '../components/partners/Partners';
 import styles from '../styles/Home.module.css';
 
 const Home: NextPage = () => {
@@ -35,6 +36,7 @@ const Home: NextPage = () => {
       <Parallax/>
       <Content className={styles.content}>
         <CarouselComponent/>
+        <Partners/>
       </Content>
 
       {/* <footer className={styles.footer}>
