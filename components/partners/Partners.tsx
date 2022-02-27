@@ -9,7 +9,7 @@ const Partners: React.FC = () => {
     <div className={styles.container}>
       <Typography.Title className={styles.title} level={2}>Наши клиенты</Typography.Title>
       <div className={styles.partners_container}>
-        {componentData.map(item => <img className={styles.partner} key={item} src={`/partners/${item}.png`} alt={item}/>)}
+        {componentData.map(item => <a key={item} href="/"><img className={styles.partner} src={`/partners/${item}.png`} alt={item}/></a>)}
       </div>
     </div>
   )
