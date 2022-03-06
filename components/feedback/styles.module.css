@@ -42,3 +42,15 @@
 .btn {
   width: 100%;
 }
+
+@media screen and (max-width: 799px) {
+  .form {
+    width: 350px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .form {
+    width: 300px;
+  }
+}

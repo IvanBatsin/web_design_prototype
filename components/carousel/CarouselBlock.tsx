@@ -47,7 +47,7 @@ const CarouselComponent: React.FC = () => {
     <div className={styles.carousel_container}>
       <Typography.Title className={styles.title} level={3}>Несколько примеров из портфолио</Typography.Title>
       <Carousel dots={false} autoplay autoplaySpeed={7000}>
-        {data.map(item => <CarouselItem carouselItem={item}/>)}
+        {data.map(item => <CarouselItem key={item.title} carouselItem={item}/>)}
       </Carousel>
     </div>
   );

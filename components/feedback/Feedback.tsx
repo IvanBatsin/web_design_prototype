@@ -53,9 +53,9 @@ const Feedback: React.FC = () => {
             <Input.TextArea  placeholder='Опишите Вашу задачу'></Input.TextArea>
           </Form.Item>
 
-          <Form.Item>
+          <Form.Item className={styles.form_item}>
             <Button type="primary" htmlType="submit" className={styles.btn}>
-              Log in
+              Обсудить проект
             </Button>
           </Form.Item>
         </Form>

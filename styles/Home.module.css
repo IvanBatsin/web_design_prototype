@@ -3,8 +3,7 @@
 }
 
 .entry_block {
-  height: calc(100vh - 62px);
-  margin-top: 62px;
+  height: 100vh;
   background-image: url('/common/background.jpg');
   position: relative;
   background-size: cover;

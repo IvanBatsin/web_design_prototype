@@ -1,10 +1,12 @@
-import { Button, Carousel, Typography } from 'antd';
+import { Button, Typography } from 'antd';
 import { Content } from 'antd/lib/layout/layout';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import CarouselComponent from '../components/carousel/CarouselBlock';
 import DevelopmentBlock from '../components/development/Development';
 import Feedback from '../components/feedback/Feedback';
+import Footer from '../components/footer/Footer';
+import InfoBlock from '../components/infoBlock/InfoBlock';
 import Parallax from '../components/parallax/ParallaxContainer';
 import Partners from '../components/partners/Partners';
 import styles from '../styles/Home.module.css';
@@ -40,19 +42,9 @@ const Home: NextPage = () => {
         <Partners/>
       </Content>
       <Feedback/>
-
-      {/* <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer> */}
+      <Content className={styles.content}>
+        <InfoBlock/> 
+      </Content>
     </>
   )
 }

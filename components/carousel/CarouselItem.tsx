@@ -13,15 +13,15 @@ const CarouselItem: React.FC<Props> = ({carouselItem}) => {
       <div className={styles.carousel_info}>
         <div>
           <Typography.Title level={4}>{carouselItem.title}</Typography.Title>
-          {carouselItem.description.map(item => {
-            return <p key={item}>{item}</p>
+          {carouselItem.description.map((item, index) => {
+            return <p key={index}>{item}</p>
           })}
         </div>
         <div>
           <Typography.Title level={5}>Технологии</Typography.Title>
           <div className={styles.technologies_block}>
-            {carouselItem.stack.map(item => {
-              return <div key={item} className={styles.technology_item}>{item}</div>
+            {carouselItem.stack.map((item, index) => {
+              return <div key={index} className={styles.technology_item}>{item}</div>
             })}
           </div>
         </div>
