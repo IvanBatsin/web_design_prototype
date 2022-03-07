@@ -1,3 +1,4 @@
+import React from 'react';
 import { Button, Typography } from 'antd';
 import { Content } from 'antd/lib/layout/layout';
 import type { NextPage } from 'next';
@@ -5,13 +6,18 @@ import Head from 'next/head';
 import CarouselComponent from '../components/carousel/CarouselBlock';
 import DevelopmentBlock from '../components/development/Development';
 import Feedback from '../components/feedback/Feedback';
-import Footer from '../components/footer/Footer';
 import InfoBlock from '../components/infoBlock/InfoBlock';
 import Parallax from '../components/parallax/ParallaxContainer';
 import Partners from '../components/partners/Partners';
 import styles from '../styles/Home.module.css';
 
 const Home: NextPage = () => {
+  const feedbackRef = React.useRef<HTMLDivElement>(null);
+
+  const handleScroll = (): void => {
+    const topOffest = feedbackRef.current?.getBoundingClientRect().top;
+    window.scroll({behavior: 'smooth', top: topOffest! - 100});
+  }
   return (
     <>
       <Head>
@@ -27,7 +33,7 @@ const Home: NextPage = () => {
               <Typography.Text className={styles.text_secondary}>С 2003</Typography.Text>
               <Typography.Text className={styles.text_heading} strong underline>CDesign - Разработка ИТ решений</Typography.Text>
               <Typography.Text className={`${styles.text_heading} ${styles.text_heading_thin}`}>Создаем ИТ решения, повышающие эффективность бизнеса наших клиентов</Typography.Text>
-              <Button className={styles.btn} size='large' ghost>Обсудить проект</Button>
+              <Button onClick={handleScroll} className={styles.btn} size='large' ghost>Обсудить проект</Button>
             </div>
           </div>
         </div>
@@ -41,7 +47,7 @@ const Home: NextPage = () => {
         <CarouselComponent/>
         <Partners/>
       </Content>
-      <Feedback/>
+      <Feedback feedbackRef={feedbackRef}/>
       <Content className={styles.content}>
         <InfoBlock/> 
       </Content>

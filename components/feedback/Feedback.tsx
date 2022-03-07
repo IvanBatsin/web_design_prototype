@@ -1,19 +1,43 @@
 import { Input } from 'antd';
 import Button from 'antd/lib/button';
 import Form from 'antd/lib/form';
+import Modal from 'antd/lib/modal/Modal';
 import Typography from 'antd/lib/typography';
 import React from 'react';
 import styles from './styles.module.css';
 
-const Feedback: React.FC = () => {
-  const onFinish = (values: any) => {
-    console.log('Received values of form: ', values);
+interface FeedbackProps {
+  feedbackRef: React.RefObject<HTMLDivElement>
+}
+
+const Feedback: React.FC<FeedbackProps> = ({feedbackRef}) => {
+  const [isModalVisible, setIsModalVisible] = React.useState(false);
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
+  const onFinish = async (values: any): Promise<void> => {
+    try {
+      const req = await window.fetch('/api/mail', {
+        body: JSON.stringify(values),
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application',
+          'Accept': 'application/json'
+        }
+      });
+      const res = await req.json() as {error: boolean};
+      setIsModalVisible(true);
+    } catch (error) {
+      console.log('error');
+    }
   };
 
   return (
     <div className={styles.container}>
       <div className={styles.layout}></div>
-      <div className={styles.content}>
+      <div className={styles.content} ref={feedbackRef}>
         <Form
           name="normal_login"
           className={styles.form}
@@ -60,6 +84,9 @@ const Feedback: React.FC = () => {
           </Form.Item>
         </Form>
       </div>
+      <Modal title="Заказ получен" visible={isModalVisible} onOk={handleCancel} onCancel={handleCancel}>
+        <p>Мы получили ваш заказ, через в течение 10 минут мы свяжемся с вами</p>
+      </Modal>
     </div>
   )
 }
